@@ -88,3 +88,19 @@ button:hover {
 .cart-item button:hover {
     background-color: #d32f2f; /* Darker color on hover */
 }
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000; /* Make sure it appears above other elements */
+    transition: opacity 0.5s ease; /* Fade out effect */
+}
+
+.notification.fade-out {
+    opacity: 0; /* Make the notification fade out */
+}
