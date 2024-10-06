@@ -37,7 +37,7 @@ function addToCart(productId) {
   }
 
   saveCart(); // Save the updated cart to local storage
-  alert(`${product.name} has been added to your cart!`); // Updated notification message
+  alert(`${product.name} has been added to your cart!`); // Updated alert message
   updateCartDisplay(); // Update the cart display
 }
 
