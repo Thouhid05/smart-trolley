@@ -40,13 +40,12 @@ function addToCart(productId) {
     const cartItem = cart.find(item => item._id === productId);
     if (cartItem) {
         cartItem.quantity += 1; // Increase quantity if already in cart
-        alert(`Increased quantity of ${product.name} in your cart!`);
     } else {
         cart.push({ ...product, quantity: 1 }); // Add product to cart
-        alert(`${product.name} has been added to your cart!`);
     }
 
-    console.log(cart); // Debugging: Log current cart state
+    // Show notification without an OK button
+    showNotification(`${product.name} has been added to your cart!`);
     updateCartDisplay(); // Update the cart display
 }
 
@@ -91,6 +90,19 @@ async function deleteProduct(productId) {
     } catch (error) {
         console.error('Error deleting product:', error);
     }
+}
+
+// Function to show a notification
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+
+    // Automatically remove notification after 3 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
 }
 
 // Function to save the cart in local storage
