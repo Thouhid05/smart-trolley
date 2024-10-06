@@ -14,8 +14,8 @@ async function displayProducts() {
             const productItem = document.createElement('div');
             productItem.classList.add('product-item');
             productItem.innerHTML = `
-                <span class="product-name">${product.name}</span> <!-- Wrap product name in a span -->
-                <p>Price: ₹${product.price}</p>
+                <span class="product-name">${product.name}</span>
+                <span class="product-price">₹${product.price}</span> <!-- Price element -->
                 <button onclick="addToCart('${product._id}')">Add to Cart</button>
                 <button onclick="deleteProduct('${product._id}')">Delete</button> <!-- Delete button -->
             `;
