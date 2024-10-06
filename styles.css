@@ -91,10 +91,11 @@ button:hover {
 
 .notification {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #FFA500; /* Orange background */
-    color: black; /* Text color for better contrast */
+    top: 50%; /* Center vertically */
+    right: 20px; /* Fixed distance from the right */
+    transform: translateY(-50%); /* Adjust position to truly center vertically */
+    background-color: #f44336; /* Red background */
+    color: white; /* Text color for better contrast */
     padding: 15px;
     border-radius: 5px;
     z-index: 1000; /* Make sure it appears above other elements */
