@@ -11,7 +11,7 @@ console.log("Mongo URI:", process.env.MONGO_URI);
 
 // Middleware
 app.use(cors()); // Use CORS middleware to allow cross-origin requests
-app.use(express.json());
+app.use(express.json()); // To parse JSON bodies
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
