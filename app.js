@@ -89,6 +89,7 @@ async function deleteProduct(productId) {
         displayProducts(); // Refresh the product list after deletion
     } catch (error) {
         console.error('Error deleting product:', error);
+        alert('Failed to delete product. Please try again later.');
     }
 }
 
@@ -125,7 +126,8 @@ function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
     } else {
-        alert(`Checkout successful! Your total is ₹${cart.reduce((total, item) => total + item.price * item.quantity, 0)}.`);
+        const total = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        alert(`Checkout successful! Your total is ₹${total}.`);
         cart = []; // Clear the cart after checkout
         saveCart(); // Clear saved cart in local storage
         updateCartDisplay(); // Refresh the cart display
