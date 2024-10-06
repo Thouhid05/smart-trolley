@@ -58,6 +58,7 @@ button:hover {
     border-radius: 5px; /* Slightly rounded corners */
     display: flex; /* Flexbox for layout */
     align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between items */
 }
 
 .product-name {
@@ -92,17 +93,35 @@ button:hover {
 /* Notification styling */
 .notification {
     position: fixed;
-    top: 50%; /* Center vertically */
+    top: 20px; /* Position at the top */
     right: 20px; /* Fixed distance from the right */
-    transform: translateY(-50%); /* Adjust position to truly center vertically */
     background-color: #f44336; /* Red background */
     color: white; /* Text color for better contrast */
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 5px; /* Rounded corners */
     z-index: 1000; /* Make sure it appears above other elements */
     transition: opacity 0.5s ease; /* Fade out effect */
 }
 
+/* Notification fade-out effect */
 .notification.fade-out {
     opacity: 0; /* Make the notification fade out */
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 600px) {
+    .product-item {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .product-name, .product-price {
+        width: auto; /* Allow these spans to use their content width */
+        text-align: left; /* Align text to the left */
+    }
+
+    button {
+        width: 100%; /* Full width buttons */
+        margin-top: 5px; /* Add some margin */
+    }
 }
