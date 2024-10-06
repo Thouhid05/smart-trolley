@@ -61,11 +61,11 @@ button:hover {
     align-items: center; /* Center items vertically */
 }
 
-/* Add this to align price and buttons in a straight line */
-.product-item p {
-    margin: 0; /* Remove default margin for paragraphs */
-    flex: 1; /* Allow price paragraph to take available space */
+/* Ensure consistent width for the product name */
+.product-name {
+    flex: 1; /* Allow the product name to take available space */
     text-align: left; /* Align text to the left */
+    min-width: 150px; /* Minimum width for product name */
 }
 
 .product-item button {
