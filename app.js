@@ -1,10 +1,11 @@
 let cart = []; // Initialize an empty cart
+let products = []; // Declare products array globally
 
 // Function to display products on the page
 async function displayProducts() {
     try {
         const response = await fetch('http://localhost:5000/products'); // Fetch products from the API
-        const products = await response.json();
+        products = await response.json(); // Assign the fetched products to the global products variable
 
         const productList = document.getElementById('product-list');
         productList.innerHTML = ''; // Clear the product list before adding new items
@@ -28,6 +29,11 @@ async function displayProducts() {
 // Function to add a product to the cart
 function addToCart(productId) {
     const product = products.find(p => p._id === productId); // Find the product by ID
+
+    if (!product) {
+        alert("Product not found!"); // Alert if product doesn't exist
+        return;
+    }
 
     // Check if the product is already in the cart
     const cartItem = cart.find(item => item._id === productId);
