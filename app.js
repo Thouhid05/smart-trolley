@@ -39,11 +39,13 @@ function addToCart(productId) {
     const cartItem = cart.find(item => item._id === productId);
     if (cartItem) {
         cartItem.quantity += 1; // Increase quantity if already in cart
+        alert(`Increased quantity of ${product.name} in your cart!`);
     } else {
         cart.push({ ...product, quantity: 1 }); // Add product to cart
+        alert(`${product.name} has been added to your cart!`);
     }
 
-    alert(`${product.name} has been added to your cart!`); // Alert for added item
+    console.log(cart); // Debugging: Log current cart state
     updateCartDisplay(); // Update the cart display
 }
 
@@ -81,6 +83,7 @@ function removeFromCart(productId) {
 // Function to save the cart in local storage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
+    console.log("Cart saved to local storage:", cart); // Debugging
 }
 
 // Function to load the cart from local storage when the page loads
