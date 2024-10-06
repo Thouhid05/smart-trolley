@@ -4,7 +4,7 @@ let products = []; // Declare products array globally
 // Function to display products on the page
 async function displayProducts() {
     try {
-        const response = await fetch('http://<YOUR_LOCAL_IP>:5000/products'); // Fetch products from the API
+        const response = await fetch('http://<192.168.205.116>:5000/products'); // Fetch products from the API
         products = await response.json(); // Assign the fetched products to the global products variable
 
         const productList = document.getElementById('product-list');
