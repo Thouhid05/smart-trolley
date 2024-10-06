@@ -1,5 +1,4 @@
 let cart = []; // Initialize an empty cart
-const trolleyID = 1; // Assuming this is the ID of the current trolley
 
 // Sample products for demonstration purposes
 const products = [
@@ -100,25 +99,8 @@ function checkout() {
   }
 }
 
-// Function to generate a QR code for the trolley
-function generateQRCode() {
-  const qrCodeURL = `https://yourwebsite.com/trolley?trolleyID=${trolleyID}`;
-  const qrcode = new QRCode(document.getElementById("qrcode"), {
-    text: qrCodeURL,
-    width: 128,
-    height: 128
-  });
-}
-
-// Function to simulate starting the shopping process
-function startShopping() {
-  alert("Scan the QR code to proceed with your trolley!");
-  generateQRCode();
-}
-
 // Event listener to load products and cart when the page loads
 document.addEventListener('DOMContentLoaded', () => {
   displayProducts(); // Display the products
   loadCart(); // Load the cart from local storage
-  generateQRCode(); // Generate the QR code for the trolley
 });
