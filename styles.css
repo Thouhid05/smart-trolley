@@ -51,7 +51,7 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.product-item, .cart-item {
+.product-item {
     margin: 10px 0; /* Margin between items */
     padding: 10px; /* Padding inside item containers */
     background-color: #f9f9f9; /* Light background for items */
@@ -61,15 +61,14 @@ button:hover {
     align-items: center; /* Center items vertically */
 }
 
-/* Ensure consistent width for the product name */
-.product-name {
-    flex: 1; /* Allow the product name to take available space */
-    text-align: left; /* Align text to the left */
-    min-width: 150px; /* Minimum width for product name */
-}
-
-.product-item button {
-    margin-left: 10px; /* Add margin to the left of the buttons for spacing */
+.cart-item {
+    margin: 10px 0; /* Margin between items */
+    padding: 10px; /* Padding inside item containers */
+    background-color: #f9f9f9; /* Light background for items */
+    border-radius: 5px; /* Slightly rounded corners */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between item name and buttons */
+    align-items: center; /* Center items vertically */
 }
 
 .cart-item button {
