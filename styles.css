@@ -57,8 +57,19 @@ button:hover {
     background-color: #f9f9f9; /* Light background for items */
     border-radius: 5px; /* Slightly rounded corners */
     display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between item name and button */
+    justify-content: space-between; /* Space between item name and buttons */
     align-items: center; /* Center items vertically */
+}
+
+/* Add this to align price and buttons in a straight line */
+.product-item p {
+    margin: 0; /* Remove default margin for paragraphs */
+    flex: 1; /* Allow price paragraph to take available space */
+    text-align: left; /* Align text to the left */
+}
+
+.product-item button {
+    margin-left: 10px; /* Add margin to the left of the buttons for spacing */
 }
 
 .cart-item button {
