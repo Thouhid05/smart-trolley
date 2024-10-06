@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors'); // Import CORS
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 5000;
 console.log("Mongo URI:", process.env.MONGO_URI);
 
 // Middleware
-app.use(cors()); // Use CORS middleware to allow cross-origin requests
-app.use(express.json()); // To parse JSON bodies
+app.use(cors()); // Enable CORS to allow cross-origin requests
+app.use(express.json()); // Parse incoming JSON requests
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
+// MongoDB connection (Updated to remove deprecated options)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log('MongoDB connection error:', err));
 
@@ -34,17 +34,19 @@ app.get('/products', async (req, res) => {
         const products = await Product.find();
         res.json(products);
     } catch (error) {
+        console.error('Error fetching products:', error);
         res.status(500).json({ message: 'Error fetching products' });
     }
 });
 
 // Add a new product
 app.post('/products', async (req, res) => {
-    const newProduct = new Product(req.body);
     try {
+        const newProduct = new Product(req.body);
         const savedProduct = await newProduct.save();
         res.status(201).json(savedProduct);
     } catch (error) {
+        console.error('Error adding product:', error);
         res.status(400).json({ message: 'Error adding product' });
     }
 });
@@ -54,9 +56,12 @@ app.put('/products/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true });
-        if (!updatedProduct) return res.status(404).json({ message: 'Product not found' });
+        if (!updatedProduct) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
         res.json(updatedProduct);
     } catch (error) {
+        console.error('Error updating product:', error);
         res.status(400).json({ message: 'Error updating product' });
     }
 });
@@ -66,9 +71,12 @@ app.delete('/products/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const deletedProduct = await Product.findByIdAndDelete(id);
-        if (!deletedProduct) return res.status(404).json({ message: 'Product not found' });
+        if (!deletedProduct) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
         res.status(204).send(); // No content
     } catch (error) {
+        console.error('Error deleting product:', error);
         res.status(500).json({ message: 'Error deleting product' });
     }
 });
