@@ -17,6 +17,7 @@ async function displayProducts() {
                 <p>${product.name}</p>
                 <p>Price: ₹${product.price}</p>
                 <button onclick="addToCart('${product._id}')">Add to Cart</button>
+                <button onclick="deleteProduct('${product._id}')">Delete</button>
             `;
             productList.appendChild(productItem);
         });
@@ -78,6 +79,14 @@ function updateCartTotal() {
 function removeFromCart(productId) {
     cart = cart.filter(item => item._id !== productId); // Remove the item from the cart
     updateCartDisplay(); // Refresh the cart display
+}
+
+// Function to delete a product from the database and refresh the display
+async function deleteProduct(productId) {
+    await fetch(`http://localhost:5000/products/${productId}`, {
+        method: 'DELETE',
+    });
+    displayProducts(); // Refresh the product list
 }
 
 // Function to save the cart in local storage
