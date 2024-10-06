@@ -93,8 +93,8 @@ button:hover {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #FFFF00; /* Orange background */
-    color: black; /* White text */
+    background-color: #FFA500; /* Orange background */
+    color: black; /* Text color for better contrast */
     padding: 15px;
     border-radius: 5px;
     z-index: 1000; /* Make sure it appears above other elements */
