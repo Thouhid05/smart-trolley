@@ -98,7 +98,7 @@ button:hover {
     background-color: #f44336; /* Red background */
     color: white; /* Text color for better contrast */
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 15px;
     z-index: 1000; /* Make sure it appears above other elements */
     transition: opacity 0.5s ease; /* Fade out effect */
 }
