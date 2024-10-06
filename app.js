@@ -4,7 +4,7 @@ let products = []; // Declare products array globally
 // Function to display products on the page
 async function displayProducts() {
     try {
-        const response = await fetch('http://localhost:5000/products'); // Fetch products from the API
+        const response = await fetch('http://<YOUR_LOCAL_IP>:5000/products'); // Fetch products from the API
         products = await response.json(); // Assign the fetched products to the global products variable
 
         const productList = document.getElementById('product-list');
@@ -83,7 +83,7 @@ function removeFromCart(productId) {
 // Function to delete a product
 async function deleteProduct(productId) {
     try {
-        await fetch(`http://localhost:5000/products/${productId}`, {
+        await fetch(`http://<YOUR_LOCAL_IP>:5000/products/${productId}`, {
             method: 'DELETE'
         });
         displayProducts(); // Refresh the product list after deletion
@@ -136,14 +136,22 @@ function checkout() {
 
 // Function to add a new product
 async function addProduct(name, price) {
-    await fetch('http://localhost:5000/products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, price }),
-    });
-    displayProducts(); // Refresh the product list
+    try {
+        const response = await fetch('http://<YOUR_LOCAL_IP>:5000/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, price }),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        displayProducts(); // Refresh the product list
+    } catch (error) {
+        console.error('Error adding product:', error);
+        alert('Failed to upload products. Please try again later.');
+    }
 }
 
 // Event listener for the product form submission
