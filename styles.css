@@ -13,115 +13,94 @@ body {
 }
 
 header {
-    background-color: #4CAF50; /* Header background color */
-    color: white; /* Header text color */
+    background-color: #4CAF50;
+    color: white;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 h1 {
-    font-size: 2em; /* Size of the main heading */
+    font-size: 2em;
 }
 
 button {
-    background-color: #ff5722; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* No border */
-    padding: 10px 20px; /* Padding inside the button */
-    font-size: 1em; /* Font size of button text */
-    cursor: pointer; /* Cursor changes to pointer on hover */
-    margin: 10px; /* Margin around buttons */
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
 }
 
-/* Change button color on hover */
 button:hover {
-    background-color: #e64a19; /* Darker color on hover */
+    background-color: #e64a19;
 }
 
 #cart {
-    margin-top: 30px; /* Margin above cart section */
+    margin-top: 30px;
 }
 
 #product-list, #cart-list {
-    margin: 20px auto; /* Center the product and cart list */
-    max-width: 600px; /* Max width for lists */
-    padding: 10px; /* Padding inside the lists */
-    background-color: #fff; /* White background for lists */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-item {
-    margin: 10px 0; /* Margin between items */
-    padding: 10px; /* Padding inside item containers */
-    background-color: #f9f9f9; /* Light background for items */
-    border-radius: 5px; /* Slightly rounded corners */
-    display: flex; /* Flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between items */
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .product-name {
-    flex: 1; /* Allow product name to take up remaining space */
-    text-align: left; /* Align text to the left */
+    flex: 1;
+    text-align: left;
 }
 
 .product-price {
-    width: 100px; /* Fixed width for the price */
-    text-align: right; /* Align text to the right */
+    width: 100px;
+    text-align: right;
 }
 
 .cart-item {
-    margin: 10px 0; /* Margin between items */
-    padding: 10px; /* Padding inside item containers */
-    background-color: #f9f9f9; /* Light background for items */
-    border-radius: 5px; /* Slightly rounded corners */
-    display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between item name and buttons */
-    align-items: center; /* Center items vertically */
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cart-item button {
-    background-color: #f44336; /* Background color for remove buttons in cart */
+    background-color: #f44336;
 }
 
-/* Change remove button color on hover */
 .cart-item button:hover {
-    background-color: #d32f2f; /* Darker color on hover */
+    background-color: #d32f2f;
 }
 
 /* Notification styling */
 .notification {
     position: fixed;
-    top: 20px; /* Position at the top */
-    right: 20px; /* Fixed distance from the right */
-    background-color: #f44336; /* Red background */
-    color: white; /* Text color for better contrast */
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #f44336;
+    color: white;
     padding: 15px;
-    border-radius: 5px; /* Rounded corners */
-    z-index: 1000; /* Make sure it appears above other elements */
-    transition: opacity 0.5s ease; /* Fade out effect */
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
 }
 
-/* Notification fade-out effect */
 .notification.fade-out {
-    opacity: 0; /* Make the notification fade out */
-}
-
-/* Responsive Design for Mobile Devices */
-@media (max-width: 600px) {
-    .product-item {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: flex-start; /* Align items to the start */
-    }
-
-    .product-name, .product-price {
-        width: auto; /* Allow these spans to use their content width */
-        text-align: left; /* Align text to the left */
-    }
-
-    button {
-        width: 100%; /* Full width buttons */
-        margin-top: 5px; /* Add some margin */
-    }
+    opacity: 0;
 }
