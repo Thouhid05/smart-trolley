@@ -83,7 +83,7 @@ function removeFromCart(productId) {
 // Function to delete a product
 async function deleteProduct(productId) {
     try {
-        await fetch(`http://<YOUR_LOCAL_IP>:5000/products/${productId}`, {
+        await fetch(`http://192.168.1.15:5000/products/${productId}`, {
             method: 'DELETE'
         });
         displayProducts(); // Refresh the product list after deletion
@@ -135,8 +135,13 @@ function checkout() {
 
 // Function to add a new product
 async function addProduct(name, price) {
+    if (!name || !price) {
+        alert('Please provide both a name and a price.');
+        return;
+    }
+
     try {
-        const response = await fetch('http://<YOUR_LOCAL_IP>:5000/products', {
+        const response = await fetch('http://192.168.1.15:5000/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
