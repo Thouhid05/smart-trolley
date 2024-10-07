@@ -4,7 +4,7 @@ let products = []; // Declare products array globally
 // Function to display products on the page
 async function displayProducts() {
     try {
-        const response = await fetch('http://localhost:5000/products'); // Fetch products from the API
+        const response = await fetch('http://192.168.1.15:5000/products'); // Fetch products from the API
         products = await response.json(); // Assign the fetched products to the global products variable
 
         const productList = document.getElementById('product-list');
@@ -15,9 +15,9 @@ async function displayProducts() {
             productItem.classList.add('product-item');
             productItem.innerHTML = `
                 <span class="product-name">${product.name}</span>
-                <span class="product-price">₹${product.price}</span> <!-- Price element -->
+                <span class="product-price">₹${product.price}</span>
                 <button onclick="addToCart('${product._id}')">Add to Cart</button>
-                <button onclick="deleteProduct('${product._id}')">Delete</button> <!-- Delete button -->
+                <button onclick="deleteProduct('${product._id}')">Delete</button>
             `;
             productList.appendChild(productItem);
         });
@@ -109,7 +109,6 @@ function showNotification(message) {
 // Function to save the cart in local storage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log("Cart saved to local storage:", cart); // Debugging
 }
 
 // Function to load the cart from local storage when the page loads
