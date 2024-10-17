@@ -4,7 +4,7 @@ let products = []; // Declare products array globally
 // Function to display products on the page
 async function displayProducts() {
     try {
-        const response = await fetch('http://192.168.1.15:5000/products'); // Fetch products from the API
+        const response = await fetch('http://locol host:5000/products'); // Fetch products from the API
         products = await response.json(); // Assign the fetched products to the global products variable
 
         const productList = document.getElementById('product-list');
@@ -83,7 +83,7 @@ function removeFromCart(productId) {
 // Function to delete a product
 async function deleteProduct(productId) {
     try {
-        await fetch(`http://192.168.1.15:5000/products/${productId}`, {
+        await fetch(`http://local host :5000/products/${productId}`, {
             method: 'DELETE'
         });
         displayProducts(); // Refresh the product list after deletion
@@ -141,7 +141,7 @@ async function addProduct(name, price) {
     }
 
     try {
-        const response = await fetch('http://192.168.1.15:5000/products', {
+        const response = await fetch('http://local host:5000/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
