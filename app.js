@@ -2,9 +2,9 @@ let cart = []; // Initialize an empty cart
 
 // Sample products for demonstration purposes
 const products = [
-  { id: 1, name: 'Product 1', price: 10 },
-  { id: 2, name: 'Product 2', price: 15 },
-  { id: 3, name: 'Product 3', price: 20 }
+  { id: 1, name: 'Product 1', price: 100 },
+  { id: 2, name: 'Product 2', price: 150 },
+  { id: 3, name: 'Product 3', price: 200 }
 ];
 
 // Function to display products on the page
@@ -17,7 +17,7 @@ function displayProducts() {
     productItem.classList.add('product-item');
     productItem.innerHTML = `
       <p>${product.name}</p>
-      <p>Price: $${product.price}</p>
+      <p>Price: ₹${product.price}</p>
       <button onclick="addToCart(${product.id})">Add to Cart</button>
     `;
     productList.appendChild(productItem);
@@ -50,7 +50,7 @@ function updateCartDisplay() {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
-      <p>${item.name} - $${item.price} (x${item.quantity})</p>
+      <p>${item.name} - ₹${item.price} (x${item.quantity})</p>
       <button onclick="removeFromCart(${item.id})">Remove</button>
     `;
     cartList.appendChild(cartItem);
@@ -63,7 +63,7 @@ function updateCartDisplay() {
 function updateCartTotal() {
   const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   const totalElement = document.getElementById('total-amount');
-  totalElement.textContent = `Total: $${totalAmount}`;
+  totalElement.textContent = `Total: ₹${totalAmount}`;
 }
 
 // Function to remove an item from the cart
@@ -92,7 +92,7 @@ function checkout() {
   if (cart.length === 0) {
     alert("Your cart is empty!");
   } else {
-    alert(`Checkout successful! Your total is $${cart.reduce((total, item) => total + item.price * item.quantity, 0)}.`);
+    alert(`Checkout successful! Your total is ₹${cart.reduce((total, item) => total + item.price * item.quantity, 0)}.`);
     cart = []; // Clear the cart after checkout
     saveCart(); // Clear saved cart in local storage
     updateCartDisplay(); // Refresh the cart display
